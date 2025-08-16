@@ -1,0 +1,57 @@
+{
+  "mob_death_1": {
+    "subtitle": "moblastwords.mob_death_1",
+    "sounds": [
+      {
+        "name": "moblastwords:mob_death_1",
+        "volume": 1.5,
+        "pitch": 1.0,
+        "stream": false
+      }
+    ]
+  },
+  "mob_death_2": {
+    "subtitle": "moblastwords.mob_death_2",
+    "sounds": [
+      {
+        "name": "moblastwords:mob_death_2",
+        "volume": 1.5,
+        "pitch": 1.0,
+        "stream": false
+      }
+    ]
+  },
+  "mob_death_3": {
+    "subtitle": "moblastwords.mob_death_3",
+    "sounds": [
+      {
+        "name": "moblastwords:mob_death_3",
+        "volume": 1.5,
+        "pitch": 1.0,
+        "stream": false
+      }
+    ]
+  },
+  "mob_death_4": {
+    "subtitle": "moblastwords.mob_death_4",
+    "sounds": [
+      {
+        "name": "moblastwords:mob_death_4",
+        "volume": 1.5,
+        "pitch": 1.0,
+        "stream": false
+      }
+    ]
+  },
+  "mob_death_5": {
+    "subtitle": "moblastwords.mob_death_5",
+    "sounds": [
+      {
+        "name": "moblastwords:mob_death_5",
+        "volume": 1.5,
+        "pitch": 1.0,
+        "stream": false
+      }
+    ]
+  }
+}
