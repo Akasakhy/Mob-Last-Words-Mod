@@ -53,5 +53,49 @@
         "stream": false
       }
     ]
+  },
+  "mob_death_6": {
+    "subtitle": "moblastwords.mob_death_6",
+    "sounds": [
+      {
+        "name": "moblastwords:mob_death_6",
+        "volume": 1.5,
+        "pitch": 1.0,
+        "stream": false
+      }
+    ]
+  },
+  "mob_death_7": {
+    "subtitle": "moblastwords.mob_death_7",
+    "sounds": [
+      {
+        "name": "moblastwords:mob_death_7",
+        "volume": 1.5,
+        "pitch": 1.0,
+        "stream": false
+      }
+    ]
+  },
+  "mob_death_8": {
+    "subtitle": "moblastwords.mob_death_8",
+    "sounds": [
+      {
+        "name": "moblastwords:mob_death_8",
+        "volume": 1.5,
+        "pitch": 1.0,
+        "stream": false
+      }
+    ]
+  },
+  "mob_death_9": {
+    "subtitle": "moblastwords.mob_death_9",
+    "sounds": [
+      {
+        "name": "moblastwords:mob_death_9",
+        "volume": 1.5,
+        "pitch": 1.0,
+        "stream": false
+      }
+    ]
   }
 }

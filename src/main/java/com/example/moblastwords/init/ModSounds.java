@@ -16,7 +16,7 @@ public class ModSounds {
 
     private static final Random RANDOM = new Random();
 
-    // 5種類のモブ死亡時の音
+    // 9種類のモブ死亡時の音
     public static final Holder<SoundEvent> MOB_DEATH_1 = SOUND_EVENTS.register(
             "mob_death_1",
             SoundEvent::createVariableRangeEvent
@@ -42,9 +42,29 @@ public class ModSounds {
             SoundEvent::createVariableRangeEvent
     );
 
+    public static final Holder<SoundEvent> MOB_DEATH_6 = SOUND_EVENTS.register(
+            "mob_death_6",
+            SoundEvent::createVariableRangeEvent
+    );
+
+    public static final Holder<SoundEvent> MOB_DEATH_7 = SOUND_EVENTS.register(
+            "mob_death_7",
+            SoundEvent::createVariableRangeEvent
+    );
+
+    public static final Holder<SoundEvent> MOB_DEATH_8 = SOUND_EVENTS.register(
+            "mob_death_8",
+            SoundEvent::createVariableRangeEvent
+    );
+
+    public static final Holder<SoundEvent> MOB_DEATH_9 = SOUND_EVENTS.register(
+            "mob_death_9",
+            SoundEvent::createVariableRangeEvent
+    );
+
     // 5つの音からランダムに1つを取得するメソッド
     private static final List<Holder<SoundEvent>> SOUNDS = List.of(
-            MOB_DEATH_1, MOB_DEATH_2, MOB_DEATH_3, MOB_DEATH_4, MOB_DEATH_5
+            MOB_DEATH_1, MOB_DEATH_2, MOB_DEATH_3, MOB_DEATH_4, MOB_DEATH_5, MOB_DEATH_6, MOB_DEATH_7, MOB_DEATH_8, MOB_DEATH_9
     );
 
     public static Holder<SoundEvent> getRandomSound() {

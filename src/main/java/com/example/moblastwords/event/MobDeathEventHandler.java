@@ -11,7 +11,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import com.example.moblastwords.util.LastWordsMessages;
 import com.example.moblastwords.init.ModSounds;
-
+import net.minecraft.ChatFormatting;
 import java.util.Random;
 
 public class MobDeathEventHandler {
@@ -38,11 +38,13 @@ public class MobDeathEventHandler {
                 deadEntity.getCustomName().getString() :
                 deadEntity.getType().getDescription().getString();
 
-        // ランダムなメッセージを取得
-        String lastWords = LastWordsMessages.getRandomMessage();
+        // ランダムなメッセージを取得（翻訳キーを使用）
+        Component lastWordsComponent = LastWordsMessages.getRandomTranslatableMessage();
 
-        // チャットメッセージを作成（赤色）
-        Component chatMessage = Component.literal("§c[" + mobName + "]: " + lastWords);
+        // チャットメッセージを作成（赤色、翻訳対応）
+        Component chatMessage = Component.literal("[" + mobName + "]: ")
+                .withStyle(ChatFormatting.RED)
+                .append(lastWordsComponent.copy().withStyle(ChatFormatting.RED));
 
         // 近くのプレイヤー全員にメッセージを送信
         for (ServerPlayer player : serverLevel.getPlayers(serverPlayer ->
@@ -62,86 +64,86 @@ public class MobDeathEventHandler {
                 1.0F
         );
 
-        // パーティクル爆発エフェクトを作成（15ブロック上空）
-        createFireworkEffect(serverLevel, deadEntity.getX(), deadEntity.getY() + 1, deadEntity.getZ());
-    }
-
-    private void createFireworkEffect(ServerLevel level, double x, double y, double z) {
-        // カラフルなパーティクル爆発エフェクトを作成
-        // 複数の爆発パーティクルを生成
-        for (int i = 0; i < 50; i++) {
-            double offsetX = (RANDOM.nextDouble() - 0.5) * 8.0;
-            double offsetY = (RANDOM.nextDouble() - 0.5) * 8.0;
-            double offsetZ = (RANDOM.nextDouble() - 0.5) * 8.0;
-
-            double velocityX = (RANDOM.nextDouble() - 0.5) * 0.5;
-            double velocityY = (RANDOM.nextDouble() - 0.5) * 0.5;
-            double velocityZ = (RANDOM.nextDouble() - 0.5) * 0.5;
-
-            // 花火パーティクル
-            level.sendParticles(
-                    ParticleTypes.FIREWORK,
-                    x + offsetX, y + offsetY, z + offsetZ,
-                    1, // パーティクル数
-                    velocityX, velocityY, velocityZ, // 速度
-                    0.1 // 追加データ
-            );
-        }
-
-        // 大きな爆発エフェクト
-        for (int i = 0; i < 20; i++) {
-            double offsetX = (RANDOM.nextDouble() - 0.5) * 6.0;
-            double offsetY = (RANDOM.nextDouble() - 0.5) * 6.0;
-            double offsetZ = (RANDOM.nextDouble() - 0.5) * 6.0;
-
-            // 爆発パーティクル
-            level.sendParticles(
-                    ParticleTypes.EXPLOSION,
-                    x + offsetX, y + offsetY, z + offsetZ,
-                    1, // パーティクル数
-                    0, 0, 0, // 速度
-                    0.0 // 追加データ
-            );
-        }
-
-        // カラフルなハート型パーティクル（追加エフェクト）
-        for (int i = 0; i < 30; i++) {
-            double offsetX = (RANDOM.nextDouble() - 0.5) * 10.0;
-            double offsetY = (RANDOM.nextDouble() - 0.5) * 10.0;
-            double offsetZ = (RANDOM.nextDouble() - 0.5) * 10.0;
-
-            double velocityX = (RANDOM.nextDouble() - 0.5) * 0.3;
-            double velocityY = RANDOM.nextDouble() * 0.3;
-            double velocityZ = (RANDOM.nextDouble() - 0.5) * 0.3;
-
-            // ハートパーティクル
-            level.sendParticles(
-                    ParticleTypes.HEART,
-                    x + offsetX, y + offsetY, z + offsetZ,
-                    1, // パーティクル数
-                    velocityX, velocityY, velocityZ, // 速度
-                    0.0 // 追加データ
-            );
-        }
-
-        // エンドロッドパーティクル（白い光）
-        for (int i = 0; i < 15; i++) {
-            double offsetX = (RANDOM.nextDouble() - 0.5) * 12.0;
-            double offsetY = (RANDOM.nextDouble() - 0.5) * 12.0;
-            double offsetZ = (RANDOM.nextDouble() - 0.5) * 12.0;
-
-            double velocityX = (RANDOM.nextDouble() - 0.5) * 0.2;
-            double velocityY = (RANDOM.nextDouble() - 0.5) * 0.2;
-            double velocityZ = (RANDOM.nextDouble() - 0.5) * 0.2;
-
-            // エンドロッドパーティクル
-            level.sendParticles(
-                    ParticleTypes.END_ROD,
-                    x + offsetX, y + offsetY, z + offsetZ,
-                    1, // パーティクル数
-                    velocityX, velocityY, velocityZ, // 速度
-                    0.0 // 追加データ
-            );
-        }
+//        // パーティクル爆発エフェクトを作成（15ブロック上空）
+//        createFireworkEffect(serverLevel, deadEntity.getX(), deadEntity.getY() + 1, deadEntity.getZ());
+//    }
+//
+//    private void createFireworkEffect(ServerLevel level, double x, double y, double z) {
+//        // カラフルなパーティクル爆発エフェクトを作成
+//        // 複数の爆発パーティクルを生成
+//        for (int i = 0; i < 50; i++) {
+//            double offsetX = (RANDOM.nextDouble() - 0.5) * 8.0;
+//            double offsetY = (RANDOM.nextDouble() - 0.5) * 8.0;
+//            double offsetZ = (RANDOM.nextDouble() - 0.5) * 8.0;
+//
+//            double velocityX = (RANDOM.nextDouble() - 0.5) * 0.5;
+//            double velocityY = (RANDOM.nextDouble() - 0.5) * 0.5;
+//            double velocityZ = (RANDOM.nextDouble() - 0.5) * 0.5;
+//
+//            // 花火パーティクル
+//            level.sendParticles(
+//                    ParticleTypes.FIREWORK,
+//                    x + offsetX, y + offsetY, z + offsetZ,
+//                    1, // パーティクル数
+//                    velocityX, velocityY, velocityZ, // 速度
+//                    0.1 // 追加データ
+//            );
+//        }
+//
+//        // 大きな爆発エフェクト
+//        for (int i = 0; i < 20; i++) {
+//            double offsetX = (RANDOM.nextDouble() - 0.5) * 6.0;
+//            double offsetY = (RANDOM.nextDouble() - 0.5) * 6.0;
+//            double offsetZ = (RANDOM.nextDouble() - 0.5) * 6.0;
+//
+//            // 爆発パーティクル
+//            level.sendParticles(
+//                    ParticleTypes.EXPLOSION,
+//                    x + offsetX, y + offsetY, z + offsetZ,
+//                    1, // パーティクル数
+//                    0, 0, 0, // 速度
+//                    0.0 // 追加データ
+//            );
+//        }
+//
+//        // カラフルなハート型パーティクル（追加エフェクト）
+//        for (int i = 0; i < 30; i++) {
+//            double offsetX = (RANDOM.nextDouble() - 0.5) * 10.0;
+//            double offsetY = (RANDOM.nextDouble() - 0.5) * 10.0;
+//            double offsetZ = (RANDOM.nextDouble() - 0.5) * 10.0;
+//
+//            double velocityX = (RANDOM.nextDouble() - 0.5) * 0.3;
+//            double velocityY = RANDOM.nextDouble() * 0.3;
+//            double velocityZ = (RANDOM.nextDouble() - 0.5) * 0.3;
+//
+//            // ハートパーティクル
+//            level.sendParticles(
+//                    ParticleTypes.HEART,
+//                    x + offsetX, y + offsetY, z + offsetZ,
+//                    1, // パーティクル数
+//                    velocityX, velocityY, velocityZ, // 速度
+//                    0.0 // 追加データ
+//            );
+//        }
+//
+//        // エンドロッドパーティクル（白い光）
+//        for (int i = 0; i < 15; i++) {
+//            double offsetX = (RANDOM.nextDouble() - 0.5) * 12.0;
+//            double offsetY = (RANDOM.nextDouble() - 0.5) * 12.0;
+//            double offsetZ = (RANDOM.nextDouble() - 0.5) * 12.0;
+//
+//            double velocityX = (RANDOM.nextDouble() - 0.5) * 0.2;
+//            double velocityY = (RANDOM.nextDouble() - 0.5) * 0.2;
+//            double velocityZ = (RANDOM.nextDouble() - 0.5) * 0.2;
+//
+//            // エンドロッドパーティクル
+//            level.sendParticles(
+//                    ParticleTypes.END_ROD,
+//                    x + offsetX, y + offsetY, z + offsetZ,
+//                    1, // パーティクル数
+//                    velocityX, velocityY, velocityZ, // 速度
+//                    0.0 // 追加データ
+//            );
+//        }
     }
 }
