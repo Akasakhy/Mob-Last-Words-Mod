@@ -13,6 +13,7 @@ credits=""
 authors="Komikan"
 description='''
 モブがプレイヤーによってキルされた際にランダムなメッセージをチャットに表示するMODです。
+This is a MOD that displays random messages in chat when mobs are killed by players.
 '''
 
 [[dependencies.moblastwords]]
